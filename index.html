@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sustainable Residential Building Design System</title>
+  <link rel="stylesheet" href="styles.css" defer />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" defer />
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=Rgu6fJyAcqZMESRZAEIjSncsxx_DIusxYQGJjuJDg3GR1YRsY0t_EUYdtLIwtbvGq4K_490-33L7oxwfAt-LkY5KgzCl_GBnu1tEab3vWA0" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="https://gc.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cHM6Ly93b25kZXJmdWwtY3JvaXNzYW50LTg3MjIxZS5uZXRsaWZ5LmFwcC8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+<body>
+
+  <!-- Three.js CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+<!-- GSAP CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
+
+
+  <div id="welcome-screen">
+    <h1>🏔️ Sustainable Residential Building Design System</h1>
+    <button id="start-btn">Welcome</button>
+  </div>
+
+  <div id="map-section" class="hidden">
+    <div class="toolbar">
+        <button id="gps-btn">📍 Locate Me</button>
+        <label class="toggle">🌗 <input type="checkbox" id="theme-toggle"></label>
+    </div>
+    <div id="map"></div>
+</div>
+
+  <div id="building-popup" class="popup hidden">
+    <h3>Enter Building Info</h3>
+    <button id="reselect-btn" class="secondary-btn">↩ Reselect Location</button>
+    <label>Height (m): <input type="number" id="height" min="1" /></label>
+    <label>Floors: <input type="number" id="floors" min="1" /></label>
+    <p id="warning-msg"></p>
+    <button id="submit-building">Submit</button>
+  </div>
+
+  <div id="plan-overlay" class="plan-overlay" style="display:none;">
+    <img src="https://i.pinimg.com/736x/b7/a3/e4/b7a3e41e03e767b6128dfe8209a5f20b.jpg" alt="1BHK Plan">
+    <p style="text-align:center;">1BHK Demo Plan</p>
+  </div>
+  
+  <style>
+    .plan-overlay {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      width: 250px;
+      border: 2px solid white;
+      background: white;
+      padding: 10px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      z-index: 100;
+    }
+    
+    .plan-overlay img {
+      width: 100%;
+      height: auto;
+    }
+  </style>
+  <div id="suggestion-box" class="hidden">
+    <h3>Site Suggestions</h3>
+    <ul id="suggestions-list"></ul>
+    <button id="go-to-builder">Start Construction</button>
+  </div>
+
+  <div id="threejs-canvas" class="hidden">
+    
+    <canvas id="three-canvas"></canvas>
+  </div>
+
+<div id="construction-view" class="hidden">
+  <div id="threejs-container"></div>
+  <button id="return-to-map">← Back to Map</button>
+  
+  <!-- Add this right above the script tags -->
+<div id="preview-box" class="preview-container hidden">
+  <h4>🏞️ Terrain Analysis</h4>
+  <div class="preview-content">
+    <div class="preview-item">
+      <span class="preview-label">Original Soil:</span>
+      <span class="preview-value" id="original-soil">Loading...</span>
+    </div>
+    <div class="preview-item">
+      <span class="preview-label">Current Soil:</span>
+      <span class="preview-value" id="current-soil">-</span>
+    </div>
+    <div class="preview-item">
+      <span class="preview-label">Slope Angle:</span>
+      <span class="preview-value" id="slope-angle">-</span>
+    </div>
+  </div>
+</div>
+</div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="script.js"></script>
+  
+</body>
+</html>
+
